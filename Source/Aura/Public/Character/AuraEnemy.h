@@ -8,6 +8,9 @@
 #include "AuraEnemy.generated.h"
 
 
+class UAuraAbilitySystemComponent;
+class UAttributeSet;
+
 /**
  * 
  */
@@ -16,9 +19,14 @@ class AURA_API AAuraEnemy : public AAuraBaseCharacter,public IEnemyInterface
 {
 	GENERATED_BODY()
 public:
+
+	/** Enemy InterFace*/
 	virtual void HiglightActor() override;
 	virtual void UnHelightActor() override;
 
-	UPROPERTY(BlueprintReadOnly)
-	bool bHightLighted = false;
+	/** End Enemy Interface */
+
+	virtual void BeginPlay() override;
+	AAuraEnemy();
+	virtual  void InitAbilityInfo() override;
 };
